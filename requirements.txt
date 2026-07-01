@@ -1,0 +1,19 @@
+# Core method, experiments, and analysis.
+# These suffice to run src/, the experiment notebooks, the gated experiment,
+# the analysis notebooks, and the toy example -- i.e. to reproduce the results
+# tables, the gating results, and every figure from the shipped prediction JSONs
+# and results JSONL.
+numpy>=1.23
+pandas>=1.5
+matplotlib>=3.6
+
+# Training notebooks only (regenerating predictions from raw data).
+# Not needed to reproduce results/plots from the shipped prediction JSONs.
+# Uncomment to run training/:
+# scikit-learn>=1.2
+# scipy>=1.10
+# torch>=2.0
+# torchvision>=0.15
+# timm>=0.9
+# transformers>=4.30
+# datasets>=2.12
