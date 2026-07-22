@@ -43,6 +43,8 @@ experiments/       thin notebooks that run the method over prediction JSONs
 analysis/          notebooks that produce the figures, tables, and detection stats
 training/          one notebook per modality that produces prediction JSONs
 toy_example.ipynb  minimal worked example (no data needed)
+figures_theory/    theory-validation figures (the Section 3 plots)
+theorem3_sim_results_v5.json  cached Theorem 3 simulation results (loaded by theory_validation)
 data/predictions/  prediction JSONs (input to experiments); see its README
 data/results/      run records (input to analysis); see its README
 requirements.txt
@@ -73,6 +75,7 @@ requirements.txt
 | `analysis/analysis_and_detection_plots.ipynb` | all Section 7 figures (centrality vs. quality, separation vs. rank, gap vs. gain, the IMDb / CIFAR-10 / Santander / QNLI failure-mode plots, and the A2 bias-vs-separation scatters) |
 | `analysis/detection_quality.ipynb` | the failure-detection statistics table |
 | `analysis/runtime_analysis.ipynb` | the per-dataset runtime table |
+| `analysis/theory_validation.ipynb` | the Section 3 theory figures (ratio monotonicity, recovery vs. N, sample complexity, composition); loads the cached simulation results if present, recomputes otherwise |
 
 ## Running it
 
@@ -115,5 +118,5 @@ The notebooks add `src/` to the path; run them from the repository root.
 The gated experiment exposes the detection thresholds as knobs, defaulting to the
 values reported in the paper (centrality dispersion `< 0.035`; separation-gap
 precondition `>= 0.535`; under-bias `>= 0.8`; over-bias `>= 2.0`), with the
-fallback budget swept over delta in {0.7, 0.8, 0.9, 1.0} and delta = 1 as the
+fallback budget (beta in the paper) swept over {0.7, 0.8, 0.9, 1.0}, with 1.0 as the
 reported setting. Tighten or loosen them to make detection stricter or looser.
