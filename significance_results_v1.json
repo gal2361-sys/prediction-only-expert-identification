@@ -1,0 +1,438 @@
+{
+ "alpha": 0.05,
+ "test": "two-sided Wilcoxon signed-rank, paired per-run",
+ "results": [
+  {
+   "dataset": "CIFAR-10",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.03115897268994576,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.03115897268994576,
+   "ci95_ours_vs_strongest": [
+    0.029151930856448433,
+    0.03316601452344309
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "CIFAR-100",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.03050263550754895,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.03050263550754895,
+   "ci95_ours_vs_strongest": [
+    0.029174717486437407,
+    0.031830553528660495
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "SVHN",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.03315568171261591,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.03315568171261591,
+   "ci95_ours_vs_strongest": [
+    0.030631445528394974,
+    0.035679917896836846
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "ImageWoof",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.016602801266148357,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.016602801266148357,
+   "ci95_ours_vs_strongest": [
+    0.01563955469301291,
+    0.017566047839283803
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "Food-101",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.013752423409052927,
+   "p_best_vs_runner": 1.895254105019918e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.013752423409052927,
+   "ci95_ours_vs_strongest": [
+    0.012731832377656576,
+    0.014773014440449277
+   ],
+   "p_ours_vs_strongest": 1.895254105019918e-11
+  },
+  {
+   "dataset": "Oxford Pets",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "All (Maj)",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.009274037390198461,
+   "p_best_vs_runner": 0.0026044337966489198,
+   "significant": true,
+   "strongest_baseline": "All (Maj)",
+   "mean_diff_ours_vs_strongest": 0.009274037390198461,
+   "ci95_ours_vs_strongest": [
+    -7.475303072014029e-05,
+    0.018622827811117064
+   ],
+   "p_ours_vs_strongest": 0.0026044337966489198
+  },
+  {
+   "dataset": "PCam",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "EM",
+   "runner_up": "All (Maj)",
+   "best_is_ours": false,
+   "mean_diff_best_vs_runner": 0.0031118217985178554,
+   "p_best_vs_runner": 0.0011479226781468494,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": -0.007938419418014622,
+   "ci95_ours_vs_strongest": [
+    -0.012109097843395297,
+    -0.003767740992633945
+   ],
+   "p_ours_vs_strongest": 1.1853099805604016e-05
+  },
+  {
+   "dataset": "Kuzushiji-49",
+   "modality": "vision",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.02535124415737373,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.02535124415737373,
+   "ci95_ours_vs_strongest": [
+    0.02408058893866773,
+    0.02662189937607973
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "Covertype",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "All (Maj)",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.057602061010765274,
+   "p_best_vs_runner": 1.6295557943119345e-11,
+   "significant": true,
+   "strongest_baseline": "All (Maj)",
+   "mean_diff_ours_vs_strongest": 0.057602061010765274,
+   "ci95_ours_vs_strongest": [
+    0.05675641780862285,
+    0.058447704212907695
+   ],
+   "p_ours_vs_strongest": 1.6295557943119345e-11
+  },
+  {
+   "dataset": "HepMass",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.29197308281727824,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.29197308281727824,
+   "ci95_ours_vs_strongest": [
+    0.28805645918035844,
+    0.29588970645419804
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "HIGGS",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "All (Maj)",
+   "runner_up": "SML",
+   "best_is_ours": false,
+   "mean_diff_best_vs_runner": 0.0001282237898310501,
+   "p_best_vs_runner": 0.9966742056718597,
+   "significant": false,
+   "strongest_baseline": "All (Maj)",
+   "mean_diff_ours_vs_strongest": -0.03260270218123217,
+   "ci95_ours_vs_strongest": [
+    -0.03868917437114905,
+    -0.026516229991315296
+   ],
+   "p_ours_vs_strongest": 1.4707016783514144e-10
+  },
+  {
+   "dataset": "Santander CT",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "SML",
+   "runner_up": "EM",
+   "best_is_ours": false,
+   "mean_diff_best_vs_runner": 0.019985149527943148,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": -0.47776018453959507,
+   "ci95_ours_vs_strongest": [
+    -0.48234351704481476,
+    -0.4731768520343754
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "Satellite Image",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.01253021981892097,
+   "p_best_vs_runner": 3.2778184272037574e-06,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.01253021981892097,
+   "ci95_ours_vs_strongest": [
+    0.008269721905809543,
+    0.016790717732032397
+   ],
+   "p_ours_vs_strongest": 3.2778184272037574e-06
+  },
+  {
+   "dataset": "UCI Letter",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "SML",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.057670566514797274,
+   "p_best_vs_runner": 1.6285331829622064e-11,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": 0.057670566514797274,
+   "ci95_ours_vs_strongest": [
+    0.05486096043066373,
+    0.06048017259893082
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "UCI Pendigits",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.005797028917408472,
+   "p_best_vs_runner": 1.1830632473505787e-10,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.005797028917408472,
+   "ci95_ours_vs_strongest": [
+    0.004813655502941187,
+    0.006780402331875757
+   ],
+   "p_ours_vs_strongest": 1.1830632473505787e-10
+  },
+  {
+   "dataset": "Banknote Auth.",
+   "modality": "tabular",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.009613286265389424,
+   "p_best_vs_runner": 6.583483987497493e-09,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.009613286265389424,
+   "ci95_ours_vs_strongest": [
+    0.006754328057949543,
+    0.012472244472829306
+   ],
+   "p_ours_vs_strongest": 6.583483987497493e-09
+  },
+  {
+   "dataset": "20 NG",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "SML",
+   "runner_up": "EM",
+   "best_is_ours": false,
+   "mean_diff_best_vs_runner": 0.002941774754392007,
+   "p_best_vs_runner": 2.9455526639684394e-10,
+   "significant": true,
+   "strongest_baseline": "SML",
+   "mean_diff_ours_vs_strongest": -0.024417843269008938,
+   "ci95_ours_vs_strongest": [
+    -0.02624802618674551,
+    -0.022587660351272368
+   ],
+   "p_ours_vs_strongest": 1.6285331829622064e-11
+  },
+  {
+   "dataset": "Amazon Pol.",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.03744564445063156,
+   "p_best_vs_runner": 2.204604148044373e-11,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.03744564445063156,
+   "ci95_ours_vs_strongest": [
+    0.030332352844088254,
+    0.04455893605717487
+   ],
+   "p_ours_vs_strongest": 2.204604148044373e-11
+  },
+  {
+   "dataset": "CoLA",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.049459325568742614,
+   "p_best_vs_runner": 0.0023918148644019497,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.049459325568742614,
+   "ci95_ours_vs_strongest": [
+    0.01474131995906041,
+    0.08417733117842482
+   ],
+   "p_ours_vs_strongest": 0.0023918148644019497
+  },
+  {
+   "dataset": "IMDb",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "EM",
+   "runner_up": "All (Maj)",
+   "best_is_ours": false,
+   "mean_diff_best_vs_runner": 0.0016363142973426152,
+   "p_best_vs_runner": 0.14573860876927103,
+   "significant": false,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": -0.020378578706339297,
+   "ci95_ours_vs_strongest": [
+    -0.03239253875084155,
+    -0.008364618661837046
+   ],
+   "p_ours_vs_strongest": 0.4549335743117363
+  },
+  {
+   "dataset": "MultiNLI",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.04980862404831637,
+   "p_best_vs_runner": 9.061884428079099e-08,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.04980862404831637,
+   "ci95_ours_vs_strongest": [
+    0.025313253760115895,
+    0.07430399433651684
+   ],
+   "p_ours_vs_strongest": 9.061884428079099e-08
+  },
+  {
+   "dataset": "QNLI",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "EM",
+   "runner_up": "All (Maj)",
+   "best_is_ours": false,
+   "mean_diff_best_vs_runner": 0.11562305340480752,
+   "p_best_vs_runner": 1.826831212772261e-10,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": -0.1969248639022922,
+   "ci95_ours_vs_strongest": [
+    -0.23767474425312865,
+    -0.15617498355145573
+   ],
+   "p_ours_vs_strongest": 1.6593134656511165e-10
+  },
+  {
+   "dataset": "SST-2",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.05126062659109724,
+   "p_best_vs_runner": 8.462514697537721e-10,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.05126062659109724,
+   "ci95_ours_vs_strongest": [
+    0.034093317042731594,
+    0.06842793613946288
+   ],
+   "p_ours_vs_strongest": 8.462514697537721e-10
+  },
+  {
+   "dataset": "DBpedia",
+   "modality": "text",
+   "n_runs": 60,
+   "best": "Experts (W)",
+   "runner_up": "EM",
+   "best_is_ours": true,
+   "mean_diff_best_vs_runner": 0.004842755038598914,
+   "p_best_vs_runner": 3.1313907677130644e-11,
+   "significant": true,
+   "strongest_baseline": "EM",
+   "mean_diff_ours_vs_strongest": 0.004842755038598914,
+   "ci95_ours_vs_strongest": [
+    0.004064887730756617,
+    0.00562062234644121
+   ],
+   "p_ours_vs_strongest": 3.1313907677130644e-11
+  }
+ ]
+}
