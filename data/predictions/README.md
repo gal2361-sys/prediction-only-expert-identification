@@ -15,11 +15,10 @@ modality): **CIFAR-10** (vision), **MultiNLI** (text), and **uci_letter**
 (tabular). The experiment notebooks glob whatever files are present, so they run
 as-is on these three.
 
-The **full set of all 24 prediction JSONs** (about 2 GB total) is available here:
+The **full set of all 24 prediction JSONs** (about 2 GB total) is not included in
+this anonymized release and will be linked upon publication.
 
-**https://drive.google.com/drive/folders/15klyTUmpGv_FCXXfonW0UB5ZLMChNYea**
-
-To reproduce the complete results and figures, download the 24 files into this
+To reproduce the complete results and figures, place the 24 files into this
 `data/predictions/` folder (alongside or replacing the samples) and rerun the
 experiment and gated-experiment notebooks; everything downstream follows from the
 regenerated run records.
