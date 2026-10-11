@@ -78,12 +78,12 @@ Typical order:
 3. `experiments/run_gated_experiment.ipynb` \-- writes `data/results/gated_records.jsonl`.  
 4. `analysis/` notebooks \-- read the results JSONL and produce the results tables, figures, detection table, and runtime table.
 
-The notebooks add `src/` to the path; run them from the repository root. Locally: clone the repository, install `requirements.txt`, and open the notebooks from the root. On Colab: either clone into the runtime (`!git clone <repo-url>` then `%cd` into it), or, if the repository is synced to your Drive, mount and `%cd` to it; the first cell of the edited notebooks does this automatically when run in Colab.
+The notebooks add `src/` to the path; run them from the repository root. Locally: clone the repository, install `requirements.txt`, and open the notebooks from the root. On Colab: either clone into the runtime (`!git clone <repo-url>` then `%cd` into it), or, if the repository is synced to your Drive, mount and `%cd` to it. The analysis notebooks begin with a cell that does this automatically on Colab and is a no-op elsewhere; for the remaining notebooks, `%cd` to the repository root yourself before running.
 
 ## Protocol notes
 
 - Pools are fixed *a priori*: 15 models per modality (compositions in the paper appendix). Expert search uses subset sizes in `[3, 10]`.  
-- Evaluation sweeps 20 sizes per dataset with 3 trials each (60 runs), seeded by `s = 100 * size + trial`; subsamples are stratified without rebalancing.  
+- Evaluation sweeps 20 sizes per dataset with 3 trials each (60 runs), seeded by `s = 100 * size + trial`. Train/test/validation splits use stratified sampling; each evaluation subsample is drawn by uniform random subsampling without rebalancing, so class proportions are preserved in expectation.  
 - The training notebooks are one representative example per modality. Other datasets in a modality follow the same pool, sizing, and split protocol with a source-specific loader.  
 - Method timing covers expert search and weighted voting only; baselines and diagnostics are excluded from the reported runtime. Absolute times are indicative and vary with hardware and CPU load.
 
