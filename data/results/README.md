@@ -9,6 +9,8 @@ reproduce every figure and the detection table without rerunning the method.
   `experiments/run_experiment.ipynb`.
 - `gated_records.jsonl` -- one record per (dataset, size, trial) from
   `experiments/run_gated_experiment.ipynb`.
+- `dbcc_records.jsonl` -- one record per (dataset, size, trial) from
+  `experiments/run_dbcc_baseline.ipynb` (the DBCC baseline, same subsamples and seeds).
 
 ## experiment_records.jsonl
 
@@ -50,3 +52,21 @@ Each line is one run record:
 The detection analysis joins the two files on (dataset, size, trial) and verifies
 `subsample_hash` matches, so each (record, class) has both its per-class F1 (loss
 label) and its gate decision.
+
+## dbcc_records.jsonl
+
+```json
+{
+  "dataset": "<name>", "size": <int>, "trial": <int>, "seed": <int>,
+  "subsample_hash": "<hex>",                 // same subsample as experiment_records.jsonl
+  "num_classes": <int>, "num_models": <int>,
+  "macro_f1": {"dbcc": <float>, "dbcc_stage1": <float>},   // published DBCC; stage 1 only (no correction loop)
+  "per_class_f1": {"dbcc": {"<class>": <float>}, "dbcc_stage1": {"<class>": <float>}},
+  "dbcc_experts": {"<class>": ["<model_id>", ...]},        // DBCC's expert set per class
+  "dbcc_em_iters": <int>,                                  // correction-loop iterations run (cap 20)
+  "time": {"dbcc": <float>, "dbcc_stage1": <float>}
+}
+```
+
+`analysis/dbcc_comparison.ipynb` joins this file with `experiment_records.jsonl` on
+(dataset, size, seed) and asserts that `subsample_hash` matches on every run.
