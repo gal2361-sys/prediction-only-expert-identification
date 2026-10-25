@@ -46,7 +46,7 @@ requirements.txt
 | `dunn.py` | Dunn-index expert subset search | Eq. (Dunn subset), Sec. 4.2 |
 | `voting.py` | expert-weighted voting (method); full-pool weighted and expert-majority votes (for analysis) | Sec. 4.3 |
 | `baselines.py` | full-pool majority, Dawid--Skene EM, Spectral Meta-Learner | Sec. 5.3 baselines |
-| `dbcc.py` | the distance-based collaborative classification algorithm of Ghanaiem et al. (2023), re-implemented from the paper as a within-family baseline | DBCC comparison (appendix) |
+| `dbcc.py` | the distance-based collaborative classification algorithm of Ghanaiem et al. (2023), implemented from the paper as a within-family baseline | DBCC comparison (appendix) |
 | `signals.py` | centrality dispersion (A1), under/over-bias (A2), separation gap | Sec. 7.4, App. bias signals |
 | `gating.py` | signal-based class gating and capped full-ensemble fallback | Sec. 7.4 |
 | `metrics.py` | per-class confusion and macro/micro F1 | Sec. 6 (macro-F1) |
