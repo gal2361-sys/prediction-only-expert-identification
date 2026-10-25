@@ -11,7 +11,7 @@ The pipeline has three stages joined by `data/`:
 training/ \--(GPU)--\> data/predictions/\*.json \--(CPU)--\> data/results/\*.jsonl \--\> analysis/
 
 - **From the shipped prediction JSONs** (`data/predictions/`): rerun the method and reproduce the results tables and the gating results. No raw datasets or retraining needed. Only 3 sample prediction files ship (one per modality); the full 24 are linked from `data/predictions/README.md`. The experiment notebooks run on whatever prediction files are present, so the 3 samples work out of the box.  
-- **From the shipped results JSONL** (`data/results/`): reproduce every figure and the detection table without rerunning the method.  
+- **From the shipped results JSONL** (`data/results/`): reproduce every figure, the detection table, and the DBCC comparison table without rerunning anything.  
 - **Raw datasets are not shipped.** Regenerating predictions from scratch requires the training notebooks and the original data sources.
 
 `data/results/failure_mode_points.json` is a small precomputed artifact used by the failure-mode figures (the IMDb and CIFAR-10 centrality-vs-F1 plots); the analysis notebook reads it directly, so those figures render without the prediction files.
@@ -46,6 +46,7 @@ requirements.txt
 | `dunn.py` | Dunn-index expert subset search | Eq. (Dunn subset), Sec. 4.2 |
 | `voting.py` | expert-weighted voting (method); full-pool weighted and expert-majority votes (for analysis) | Sec. 4.3 |
 | `baselines.py` | full-pool majority, Dawid--Skene EM, Spectral Meta-Learner | Sec. 5.3 baselines |
+| `dbcc.py` | the distance-based collaborative classification algorithm of Ghanaiem et al. (2023), re-implemented from the paper as a within-family baseline | DBCC comparison (appendix) |
 | `signals.py` | centrality dispersion (A1), under/over-bias (A2), separation gap | Sec. 7.4, App. bias signals |
 | `gating.py` | signal-based class gating and capped full-ensemble fallback | Sec. 7.4 |
 | `metrics.py` | per-class confusion and macro/micro F1 | Sec. 6 (macro-F1) |
@@ -59,7 +60,9 @@ requirements.txt
 | `toy_example.ipynb` | the appendix worked example (expert sets E\_1, E\_2, E\_3) |
 | `experiments/run_experiment.ipynb` | the run records feeding the results tables |
 | `experiments/run_gated_experiment.ipynb` | the gated run records (the fallback effect) |
+| `experiments/run_dbcc_baseline.ipynb` | the DBCC baseline run records, on the same subsamples and seeds as the main experiment |
 | `analysis/results_tables.ipynb` | the results tables (vision, tabular, text) from the run records |
+| `analysis/dbcc_comparison.ipynb` | the DBCC comparison table and counts (joins the DBCC records with the main run records) |
 | `analysis/analysis_and_detection_plots.ipynb` | all Section 7 figures (centrality vs. quality, separation vs. rank, gap vs. gain, the IMDb / CIFAR-10 / Santander / QNLI failure-mode plots, and the A2 bias-vs-separation scatters) |
 | `analysis/detection_quality.ipynb` | the failure-detection statistics table |
 | `analysis/runtime_analysis.ipynb` | the per-dataset runtime table |
@@ -76,14 +79,15 @@ Typical order:
 1. `toy_example.ipynb` \-- sanity check, no data required.  
 2. `experiments/run_experiment.ipynb` \-- point it at `data/predictions/`, writes `data/results/experiment_records.jsonl`.  
 3. `experiments/run_gated_experiment.ipynb` \-- writes `data/results/gated_records.jsonl`.  
-4. `analysis/` notebooks \-- read the results JSONL and produce the results tables, figures, detection table, and runtime table.
+4. `experiments/run_dbcc_baseline.ipynb` \-- writes `data/results/dbcc_records.jsonl` (the DBCC baseline; optional).  
+5. `analysis/` notebooks \-- read the results JSONL and produce the results tables, figures, detection table, runtime table, and the DBCC comparison.
 
-The notebooks add `src/` to the path; run them from the repository root. Locally: clone the repository, install `requirements.txt`, and open the notebooks from the root. On Colab: either clone into the runtime (`!git clone <repo-url>` then `%cd` into it), or, if the repository is synced to your Drive, mount and `%cd` to it. The analysis notebooks begin with a cell that does this automatically on Colab and is a no-op elsewhere; for the remaining notebooks, `%cd` to the repository root yourself before running.
+The notebooks add `src/` to the path; run them from the repository root. Locally: clone the repository, install `requirements.txt`, and open the notebooks from the root. On Colab: either clone into the runtime (`!git clone <repo-url>` then `%cd` into it), or, if the repository is synced to your Drive, mount and `%cd` to it; the first cell of the edited notebooks does this automatically when run in Colab.
 
 ## Protocol notes
 
 - Pools are fixed *a priori*: 15 models per modality (compositions in the paper appendix). Expert search uses subset sizes in `[3, 10]`.  
-- Evaluation sweeps 20 sizes per dataset with 3 trials each (60 runs), seeded by `s = 100 * size + trial`. Train/test/validation splits use stratified sampling; each evaluation subsample is drawn by uniform random subsampling without rebalancing, so class proportions are preserved in expectation.  
+- Evaluation sweeps 20 sizes per dataset with 3 trials each (60 runs), seeded by `s = 100 * size + trial`; subsamples are stratified without rebalancing.  
 - The training notebooks are one representative example per modality. Other datasets in a modality follow the same pool, sizing, and split protocol with a source-specific loader.  
 - Method timing covers expert search and weighted voting only; baselines and diagnostics are excluded from the reported runtime. Absolute times are indicative and vary with hardware and CPU load.
 

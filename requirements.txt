@@ -7,11 +7,11 @@ numpy>=1.23
 pandas>=1.5
 matplotlib>=3.6
 scipy>=1.10
+scikit-learn>=1.2    # GaussianMixture, used by src/dbcc.py
 
 # Training notebooks only (regenerating predictions from raw data).
 # Not needed to reproduce results/plots from the shipped prediction JSONs.
 # Uncomment to run training/:
-# scikit-learn>=1.2
 # torch>=2.0
 # torchvision>=0.15
 # timm>=0.9
