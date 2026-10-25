@@ -14,6 +14,7 @@ from voting import (
     predictions_to_vector,
 )
 from baselines import majority_voting_all_models, em_dawid_skene, sml_predict
+from dbcc import dbcc_predict
 from signals import (
     model_centrality,
     centrality_dispersion,
