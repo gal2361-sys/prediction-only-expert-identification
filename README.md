@@ -87,7 +87,7 @@ The notebooks add `src/` to the path; run them from the repository root. Locally
 ## Protocol notes
 
 - Pools are fixed *a priori*: 15 models per modality (compositions in the paper appendix). Expert search uses subset sizes in `[3, 10]`.  
-- Evaluation sweeps 20 sizes per dataset with 3 trials each (60 runs), seeded by `s = 100 * size + trial`; subsamples are stratified without rebalancing.  
+- Evaluation sweeps 20 sizes per dataset with 3 trials each (60 runs), seeded by `s = 100 * size + trial`; subsamples are drawn uniformly at random without rebalancing.  
 - The training notebooks are one representative example per modality. Other datasets in a modality follow the same pool, sizing, and split protocol with a source-specific loader.  
 - Method timing covers expert search and weighted voting only; baselines and diagnostics are excluded from the reported runtime. Absolute times are indicative and vary with hardware and CPU load.
 
