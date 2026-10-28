@@ -12,6 +12,16 @@ reproduce every figure and the detection table without rerunning the method.
 - `dbcc_records.jsonl` -- one record per (dataset, size, trial) from
   `experiments/run_dbcc_baseline.ipynb` (the DBCC baseline, same subsamples and seeds).
 
+## Dataset keys
+
+The `dataset` field holds the key under which the prediction file was produced. One key
+does not name its dataset: `HEPMASS` denotes the credit card fraud detection dataset
+(OpenML dataset 1597: 284,807 transactions, 0.17% fraudulent, 28 principal components
+with time and amount). The tabular training notebook failed to load HEPMASS by name and
+fell back to this dataset; the split, the training and all records under this key are of
+the credit card data. The key is kept unchanged so that the records remain joinable; the
+analysis notebooks print it as "Credit Card Fraud".
+
 ## experiment_records.jsonl
 
 Each line is one run record:
