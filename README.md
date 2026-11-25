@@ -1,6 +1,6 @@
 # Prediction-Only Expert Identification via Disagreement Geometry
 
-Code for the paper *A Framework for Prediction-Only Expert Identification in Classification via Disagreement Geometry*.
+Code for the paper *A Framework for Prediction-Only Expert Identification in Classification via Disagreement Geometry* and for the M.Sc. thesis of the same title (Gal Gussarsky, Tel Aviv University, 2026). The section numbers quoted in the tables below are the manuscript's; the thesis map at the end of this file translates them.
 
 The method identifies, for each class, a subset of "expert" models from a heterogeneous pool using only the models' hard predictions on unlabeled data \-- no ground-truth labels, validation performance, calibration, or model internals. It builds a class-conditional disagreement geometry, selects a compact, well-separated expert subset by a Dunn-index criterion, and aggregates the experts by geometry-aware weighted voting. The repository also includes the prediction-only failure diagnostics and the diagnostic-gated fallback.
 
@@ -94,3 +94,30 @@ The notebooks add `src/` to the path; run them from the repository root. Locally
 ## Gating thresholds
 
 The gated experiment exposes the detection thresholds as knobs, defaulting to the values reported in the paper (centrality dispersion `< 0.035`; separation-gap precondition `>= 0.535`; under-bias `>= 0.8`; over-bias `>= 2.0`), with the fallback budget (beta in the paper) swept over {0.7, 0.8, 0.9, 1.0}, with 1.0 as the reported setting. Tighten or loosen them to make detection stricter or looser.  
+
+## Reading this repository alongside the thesis
+
+The thesis reorganizes the manuscript into chapters. This table says where each part of
+the repository is described in the thesis, in the thesis's own numbering.
+
+| Repository item | Thesis location |
+| :---- | :---- |
+| `src/disagreement.py` (class-conditional disagreement distance) | Section 4.1 |
+| `src/dunn.py` (Dunn-index expert subset search) | Section 4.2; the stability constant and tie-breaking in Appendix D |
+| `src/voting.py` (expert-weighted voting) | Section 4.3 |
+| `src/baselines.py` (majority vote, Dawid-Skene EM, SML) | Section 5.1.4 |
+| `src/dbcc.py` and `analysis/dbcc_comparison.ipynb` | Appendix H, Table H.1 |
+| `src/signals.py` (dispersion, bias, separation signals) | Section 6.2.1 (dispersion), Section 6.2.2 (bias), Appendix F |
+| `src/gating.py` and `experiments/run_gated_experiment.ipynb` | Section 6.2.2 (the fallback), Appendix F |
+| `src/pipeline.py`, `src/io_utils.py` (runs, subsamples, sizes) | Section 5.1.3, Appendix A, Appendix D |
+| `experiments/run_experiment.ipynb` and `data/results/experiment_records.jsonl` | Section 5.2 (Tables 5.1 to 5.3) |
+| `analysis/results_tables.ipynb` | Tables 5.1 to 5.3 |
+| `analysis/significance_tests.ipynb` | Section 5.2 (the per-dataset Wilcoxon tests behind the daggers, and the Friedman test with Nemenyi post-hoc) |
+| `analysis/analysis_and_detection_plots.ipynb` | Figures 6.1 to 6.6 |
+| `analysis/detection_quality.ipynb` | Table 6.1 and Appendix F (Tables F.1 and F.2) |
+| `analysis/runtime_analysis.ipynb` | Appendix E, Table E.1 |
+| `analysis/theory_validation.ipynb` and `figures_theory/` | Section 3.6.3, Figures 3.1 to 3.5 |
+| `toy_example.ipynb` | Section 4.4, Tables 4.1 to 4.3 |
+| `training/` and `data/predictions/` | Appendices B and C (pools and training), Appendix A (splits and evaluation sets) |
+| `data/results/README.md` (dataset keys) | Appendix A.5; the key `HEPMASS` is the Credit Card Fraud dataset |
+
